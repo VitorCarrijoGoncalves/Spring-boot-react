@@ -1,5 +1,7 @@
 package br.com.api.produtos.controle;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +25,7 @@ public class ProdutoControle {
     private ProdutoServico ps;
 
     @DeleteMapping("/remover/{codigo}")
+    @RolesAllowed("ADMIN")
     public ResponseEntity<RespostaModelo> remover(@PathVariable long codigo) {
         return ps.remover(codigo);
     }
