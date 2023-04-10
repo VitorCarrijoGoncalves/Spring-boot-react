@@ -15,7 +15,7 @@ public class TokenServico {
         .withIssuer("Produtos")
         .withSubject(auth.getUsername())
         .withClaim("id", auth.getId())
-        .withExpiresAt(new Date(System.currentTimeMillis() + 300000) //300000 ms = 5 min
+        .withExpiresAt(new Date(System.currentTimeMillis() + 60000) //300000 ms = 5 min
         ).sign(Algorithm.HMAC256("secreta"));
     }
 
